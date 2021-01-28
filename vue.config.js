@@ -9,21 +9,10 @@ module.exports = {
       //set第一个参数：设置的别名，第二个参数：设置的路径
       .set("@", resolve("./src"))
       .set("components", resolve("./src/components"))
+      .set("network", resolve("./src/network"))
       .set("assets", resolve("./src/assets"))
       .set("views", resolve("./src/views"))
       .set("common", resolve("./src/common"));
-    //注意 store 和 router 没必要配置
+ 
   }
-  // configureWebpack: {
-  //   resolve: {
-  //     extensions:[],
-  // alias: {
-  //   'assets': "@/assets",
-  //   'common': "@/common",
-  //   'components': "@/components",
-  //   'views': "@/views"
-  // }
-
-  //   }
-  // }
 };
