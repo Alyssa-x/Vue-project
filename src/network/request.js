@@ -11,14 +11,14 @@ export function request(config) {
       // config不符合服务器的要求 or 每次请求时需要某些行为 or 带token
       return config;
     }, err => {
-      // console.log(err);
+      console.log(22);
     })
     // 响应拦截器
     instance.interceptors.response.use(res => {
       // console.log(res);
       return res.data;
     }, err => {
-      // console.log(err);
+      console.log(err);
     })
 
     // 3 发送真正的网络请求
