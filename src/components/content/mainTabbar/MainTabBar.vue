@@ -1,6 +1,6 @@
 <template>
-  <tar-bar>
-    <tar-bar-item path="/home">
+  <tab-bar>
+    <tab-bar-item path="/home">
       <!--dom 中使用路径需要用 ~ 来识别配置的别名-->
       <template v-slot:item-icon>
         <img src="~assets/images/tabbar/home.svg" alt="" />
@@ -11,8 +11,8 @@
       <template v-slot:item-text>
         <div>首页</div>
       </template>
-    </tar-bar-item>
-    <tar-bar-item path="/category">
+    </tab-bar-item>
+    <tab-bar-item path="/category">
       <template v-slot:item-icon>
         <img src="~assets/images/tabbar/category.svg" alt="" />
       </template>
@@ -22,8 +22,8 @@
       <template v-slot:item-text>
         <div>品类</div>
       </template>
-    </tar-bar-item>
-    <tar-bar-item path="/cart">
+    </tab-bar-item>
+    <tab-bar-item path="/cart">
       <template v-slot:item-icon>
         <img src="~assets/images/tabbar/shopcart.svg" alt="" />
       </template>
@@ -33,8 +33,8 @@
       <template v-slot:item-text>
         <div>购物车</div>
       </template>
-    </tar-bar-item>
-    <tar-bar-item path="/me">
+    </tab-bar-item>
+    <tab-bar-item path="/me">
       <template v-slot:item-icon>
         <img src="~assets/images/tabbar/profile.svg" alt="" />
       </template>
@@ -44,19 +44,19 @@
       <template v-slot:item-text>
         <div>我的</div>
       </template>
-    </tar-bar-item>
-  </tar-bar>
+    </tab-bar-item>
+  </tab-bar>
 </template>
 
 <script>
-import TarBar from "components/common/tarbar/TarBar";
-import TarBarItem from "components/common/tarbar/TarBarItem";
+import TabBar from "components/common/tabbar/TabBar";
+import TabBarItem from "components/common/tabbar/TabBarItem";
 
 export default {
-  name: "MainTarBar",
+  name: "MainTabBar",
   components: {
-    TarBar,
-    TarBarItem
+    TabBar,
+    TabBarItem
   }
 };
 </script>
