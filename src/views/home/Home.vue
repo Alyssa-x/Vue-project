@@ -30,7 +30,7 @@
       />
       <goods-list :goods="showGoods" />
     </scroll>
-    <back-top @click.native="backClick" v-show="isShowBackTop" />
+    <back-top @click.native="backTop" v-show="isShowBackTop" />
   </div>
 </template>
 
@@ -43,10 +43,10 @@ import NavBar from "components/common/navBar/NavBar";
 import TabControl from "components/content/tabControl/TabControl";
 import GoodsList from "components/content/goods/GoodsList.vue";
 import Scroll from "components/common/scroll/Scroll";
-import BackTop from "../../components/content/backTop/BackTop.vue";
+
 
 import { getHomeMultidata, getHomeGoods } from "network/home.js";
-import {itemListenerMixin} from "common/mixin.js"
+import {itemListenerMixin,backTopMixin} from "common/mixin.js"
 
 export default {
   name: "Home",
@@ -58,9 +58,9 @@ export default {
     TabControl,
     GoodsList,
     Scroll,
-    BackTop
+
   },
-  mixins: [itemListenerMixin],
+  mixins: [itemListenerMixin,backTopMixin],
   data() {
     return {
       banners: [],
@@ -72,7 +72,7 @@ export default {
         sell: { page: 0, list: [] }
       },
       currentType: "pop",
-      isShowBackTop: false,
+      // isShowBackTop: false,
       tabOffsetTop: 0,
       isTabFixed: false,
       saveY: 0,
@@ -104,19 +104,16 @@ export default {
       this.$refs.tabControl2.currentIndex = index;
     },
     contentScroll(position) {
-      // 1.判断BackTop是否显示
-      this.isShowBackTop = (-position.y) > 1000;
+      // 1.判断BackTop是否显示 mixin
+      // this.isShowBackTop = (-position.y) > 1000;
 
       // 2.决定tabControl是否吸顶(position: fixed)
       this.isTabFixed = (-position.y) > this.tabOffsetTop;
     },
     loadMore() {
       this.getHomeGoods(this.currentType);
-      console.log(this.currentType);
     },
-    backClick() {
-      this.$refs.scroll.scrollTo(0, 0);
-    },
+   
     swiperImageLoad() {
       this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop;
     },

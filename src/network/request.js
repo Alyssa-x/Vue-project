@@ -7,7 +7,6 @@ export function request(config) {
     });
     // 请求拦截器
     instance.interceptors.request.use(config => {
-      // console.log(config);
       // config不符合服务器的要求 or 每次请求时需要某些行为 or 带token
       return config;
     }, err => {

@@ -1,4 +1,5 @@
 import { debounce } from "./utils";
+import BackTop from "components/content/backTop/BackTop.vue";
 
 export const itemListenerMixin = {
   data() {
@@ -11,5 +12,24 @@ export const itemListenerMixin = {
     };
     this.$bus.$on("isLoaded", this.itemImgListener);
     console.log("mixin mounted");
+  }
+};
+
+export const backTopMixin = {
+  components:{
+    BackTop
+  },
+  data() {
+    return {
+      isShowBackTop:false
+    };
+  },
+  methods: {
+    // 回到顶部
+    backTop() {
+      // 调用子组件里面封装的scrollTo方法即可
+      this.$refs.scroll.scrollTo(0, 0, 300);
+    }
+    
   }
 };
